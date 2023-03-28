@@ -1,0 +1,25 @@
+package:
+  id: qtnetworkauth
+  name: qtnetworkauth
+  kind: lib
+  version: 5.11.3
+  description: |
+    qtnetworkauth
+
+base:
+  id: org.deepin.base
+  version: 20.5.0
+
+depends:
+- id: qtbase
+  version: 5.11.3.15
+
+source:
+  kind: git
+  url: https://github.com/deepin-community/qtnetworkauth-opensource-src.git
+  version: uos/5.11.3
+  commit: 8ec780d3422e9c8494c18b7b9e2ce0cee12cd87f
+  patch:
+  - disable_tests_network.diff
+build:
+  kind: qmake

@@ -1,0 +1,23 @@
+Description: disable two tests that fail without network access
+Author: Dmitry Shachnev <mitya57@debian.org>
+Forwarded: not-needed
+Last-Update: 2018-11-02
+
+--- a/tests/auto/oauth1/tst_oauth1.cpp
++++ b/tests/auto/oauth1/tst_oauth1.cpp
+@@ -646,6 +646,7 @@ void tst_OAuth1::grant_data()
+ 
+ void tst_OAuth1::grant()
+ {
++    QSKIP("Requires network access");
+     QFETCH(QString, consumerKey);
+     QFETCH(QString, consumerSecret);
+     QFETCH(QString, requestToken);
+@@ -751,6 +752,7 @@ void tst_OAuth1::authenticatedCalls_data
+ 
+ void tst_OAuth1::authenticatedCalls()
+ {
++    QSKIP("Requires network access");
+     QFETCH(QString, consumerKey);
+     QFETCH(QString, consumerSecret);
+     QFETCH(QString, accessKey);
